@@ -29,6 +29,7 @@ export default function App() {
   const [addItem, setAddItem] = useState('')
   const [todos, dispatch] = useReducer(reducer, initialTodos)
 
+  // called when we press save
   const handleAdd = () => {
     // the todo task can not be empty
     if (addItem !== ""){
@@ -37,16 +38,16 @@ export default function App() {
     }
   }
 
+  // called when we click a text field in the list
   const handleRemove = (thisId) => {
     dispatch({type: "REMOVE", id: thisId})
   }
 
   return (
     <View style={Styles.container}>
-
       <View style={{marginTop: 16, flex: 1, flexDirection: 'row', maxHeight: 40, maxWidth: 260}}>
         <TextInput
-          style={{width: 200, maxWidth: 200, backgroundColor: '#fff555', justifyContent: "center", alignItems: 'center'}}
+          style={Styles.userInput}
           onChangeText={setAddItem}
           placeholder='Add todo...'
           value={addItem}
@@ -61,7 +62,7 @@ export default function App() {
         data={todos}
         renderItem={({item}) => (
           <Pressable onPress={() => handleRemove(item.id)}>
-            <Text key={item.id} style={{paddingBottom: 16, borderWidth: 1, borderColor: '#000000'}}>{item.text}</Text>
+            <Text key={item.id} style={Styles.listItem}>{item.text}</Text>
           </Pressable>
         )}
       />

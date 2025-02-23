@@ -7,6 +7,18 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  listItem: {
+    paddingBottom: 16,
+    borderWidth: 1,
+    borderColor: '#000000'
+  },
+  userInput: {
+    width: 200,
+    maxWidth: 200,
+    backgroundColor: '#fff555',
+    justifyContent: "center",
+    alignItems: 'center'
+  }
 });
 
 export default Styles
